@@ -68,6 +68,7 @@ $(document).ready(function () {
         } else {
             document.forms.display.value =
                 eval(document.forms.display.value);
+                $("#inputField").attr('maxlength','10');
         };
     })
     $('#back').click(function () {

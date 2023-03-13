@@ -1,18 +1,16 @@
-// $(document).ready(function() {
-//     var result = 0;
-//     var prevEntry = 0;
-//     var operation = null;
-//     var currentEntry = '0';
-//     updateScreen(result);
 
-//     $('.button').on('click', function (evt) {
-//         var buttonPressed = $(this).html();
-//         console.log(buttonPressed);
-//     })
-// })
 
 
 $(document).ready(function () {
+    $(document).ready(function() {
+        $('#inputField').on('input', function() {
+            $(this).val($(this).val().replace(/[^0-9.]/g, ''));
+            $("#inputField").attr('maxlength','10');
+        });
+      
+        // $('#inputField').attr('max', 10);
+        
+      });
     $('#one').click(function () {
         document.forms.display.value += 1;
     })
@@ -56,7 +54,12 @@ $(document).ready(function () {
         document.forms.display.value += '/';
     })
     $('#dot').click(function () {
-        document.forms.display.value += '.';
+        // document.forms.display.value += '.';
+        if (document.forms.display.value.indexOf('.') > -1) {
+            $(":#dot").attr("disabled", true);
+        } else { 
+            document.forms.display.value += '.';
+        }
     })
     $('#equal').click(function () {
         if (document.forms.display.value == "") {
@@ -75,7 +78,15 @@ $(document).ready(function () {
     })
 })
 
-    
+
+
+// $(document).ready(function() {
+//     $('#calculator-input').on('input', fuction() {
+//         $(this).val($(this).val().replace(/[^0-9.]/g, ''))
+//     });
+//     $('#calculator-input').attr('maxlength', 10);
+// });
+
 
 
 
